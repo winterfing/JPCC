@@ -37,7 +37,7 @@ public class Response
             sheader = "HTTP/1.0 200 OK\r\n" + "Server: OneFile 1.0\r\n"
                     + "Content-length: "
                     + this.content.getBytes(encoding).length + "\r\n"
-                    + "Content-type: text/html\r\n\r\n";
+                    + "Content-type: text/html;charset="+encoding.toLowerCase()+"\r\n\r\n";
 
             outputStream.write(this.sheader.getBytes(encoding));
         }

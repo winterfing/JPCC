@@ -8,6 +8,9 @@ public class Constants
 
     }
 
-    public static final String SHUTDOWN_COMMAND = "shoutdown";
+    public static final String SHUTDOWN_COMMAND = "/shutdown";
+    
+    public static final String CON_COMMAND = "pu";
+    
 
 }

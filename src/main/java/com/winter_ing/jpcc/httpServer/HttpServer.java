@@ -41,6 +41,8 @@ public class HttpServer
     static ServerSocket serverSocket;
 
     private static IHttpHandle httpHandle;
+    
+    public static String staticSources;
 
     /**
      * 构造方法私有化
@@ -59,6 +61,7 @@ public class HttpServer
         encoding = pro.getProperty("code");
         implClassName = pro.getProperty("implclassname");
         shutdown = Boolean.getBoolean(pro.getProperty("shutdown"));
+        staticSources = pro.getProperty("staticSources");
     }
 
     public static void startServer()
@@ -77,6 +80,7 @@ public class HttpServer
             System.exit(1);
         }
         System.out.println(shutdown ? "程序启动未开启服务" : "程序启动正在开启服务");
+        System.out.println(WEB_ROOT);
         // 开启socket
         while (!shutdown)
         {
@@ -115,7 +119,7 @@ public class HttpServer
                 }
 
                 // 检查URI是否是一个关闭命令
-                if (Constants.SHUTDOWN_COMMAND.equals(request.getUri()))
+                if (Constants.SHUTDOWN_COMMAND.equals(request.getUri().trim()))
                 {
                     shutdown = !shutdown;
                     System.out.println(shutdown ? "服务已关闭" : "服务已开启");

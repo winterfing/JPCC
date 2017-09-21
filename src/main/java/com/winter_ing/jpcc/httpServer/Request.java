@@ -40,7 +40,7 @@ public class Request
                 e.printStackTrace();
             }
         }
-        this.req = request.toString();
+        this.req = request.toString().trim();
         parseUri(request);
     }
 
@@ -49,7 +49,7 @@ public class Request
         int index = request.indexOf(" ");
         if (index != -1)
         {
-            uri = request.substring(index, request.indexOf(" ", index + 1));
+            uri = request.substring(index, request.indexOf(" ", index + 1)).trim();
         }
     }
 
